@@ -1,7 +1,7 @@
 
 #wrap{
-	width:600px;
-	margin:0 auto;
+	width:300px;
+	margin:0 ;
 	text-align:left;
 	margin-top:2px;
 	padding:2px;
@@ -72,13 +72,20 @@ padding-bottom:2px;
 
 #wrap div#totalPrice
 {
-    padding:2px;
+    padding:4px;
     font-weight:bold;
-    background-color:#ff0;
+    background-color:#CCF;
 }
 
 #wrap label.radiolabel
 {
 font-weight:normal;
  display:inline;
+}
+
+#wrap div#block1
+{
+    padding:4px;
+    font-weight:bold;
+    background-color:#CCF;
 }

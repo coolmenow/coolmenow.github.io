@@ -42,6 +42,7 @@ function getFillingPrice()
     typeFillingPrice = filling_prices[selectedFilling.value];
 	materialPrice1 = Math.round(parseFloat(typeFillingPrice));
     //finally we return cakeFillingPrice
+    console.log("Filling R" +materialPrice1);
     return typeFillingPrice;
 }
 
@@ -107,6 +108,51 @@ function getSizePrice()
     //finally we return the inscriptionPrice
     return materialPrice;
 }
+function labourPrice()
+{
+	
+    //Get a refernce to the form id="coolform"
+    theForm = document.forms["coolform"];
+    
+    //Calculate
+    
+        block1RL=Math.round(parseFloat(WinPrice)*(parseFloat(numberW1)+parseFloat(numberW2)
+        +parseFloat(numberW3)+parseFloat(numberW4)+parseFloat(numberW5)+parseFloat(numberW6))+parseFloat(materialPrice)*0.17);
+    
+    //finally we returconsole.log("MP R" +materialPrice);n the inscriptionPrice
+    return block1RL;
+}
+
+function calculateTotal()
+{
+    //Here we get the total price by calling our function
+    //Each function returns a number so by calling them we add the values they return together
+    getFillingPrice();
+    getSizePrice();
+    labourPrice();
+    console.log("MP R" +materialPrice);
+    block1R = parseFloat(materialPrice)  + parseFloat(block1RL)+parseFloat(overhead);
+
+    //display the result
+    
+    divobj1 = document.getElementById('materialPrice');
+    divobj1.style.display='block';
+    divobj1.innerHTML = "Material cost       = R"+materialPrice;
+    divobj2 = document.getElementById('labourPrice');
+    divobj2.style.display='block';
+    labour = parseFloat(block1RL)+parseFloat(overhead);
+    divobj2.innerHTML = "Installation and site labour = R"+labour;
+    divobj3 = document.getElementById('totalPrice');
+    divobj3.style.display='block';
+    divobj3.innerHTML = "Total Price         = R"+block1R;
+    localStorage.setItem("HeightWin1",HeightWin1);
+    localStorage.setItem("WidthWin1",WidthWin1);
+	localStorage.setItem("NumberWin1",numberW1);
+	localStorage.setItem("block1R",block1R);
+	localStorage.setItem("block1RL",block1R);
+	localStorage.setItem("block1RM",block1R);
+
+}
 function getSizePrice1()
 {	  
     //Get a reference to the form id="coolform"
@@ -141,51 +187,9 @@ function labourPrice1()
     return block1RL;
 }
 
-function labourPrice()
-{
-	
-    //Get a refernce to the form id="coolform"
-    theForm = document.forms["coolform"];
-    
-    //Calculate
-    
-        labourPriceT=Math.round(parseFloat(WinPrice)*(parseFloat(numberW1)+parseFloat(numberW2)
-        +parseFloat(numberW3)+parseFloat(numberW4)+parseFloat(numberW5)+parseFloat(numberW6))+parseFloat(materialPrice)*0.17);
-    
-    //finally we return the inscriptionPrice
-    return labourPriceT;
-}
+
         
-function calculateTotal()
-{
-    //Here we get the total price by calling our function
-    //Each function returns a number so by calling them we add the values they return together
-    getFillingPrice();
-    getSizePrice1();
-    labourPrice1();
-    
-    block1R = parseFloat(block1RL)  + parseFloat(block1RM)+parseFloat(overhead);
 
-    //display the result
-    
-    divobj1 = document.getElementById('materialPrice');
-    divobj1.style.display='block';
-    divobj1.innerHTML = "Material cost       = R"+block1RM;
-    divobj2 = document.getElementById('labourPrice');
-    divobj2.style.display='block';
-    labour = parseFloat(block1RL)+parseFloat(overhead);
-    divobj2.innerHTML = "Installation and site labour = R"+labour;
-    divobj3 = document.getElementById('totalPrice');
-    divobj3.style.display='block';
-    divobj3.innerHTML = "Total Price         = R"+block1R;
-    localStorage.setItem("HeightWin1",HeightWin1);
-    localStorage.setItem("WidthWin1",WidthWin1);
-	localStorage.setItem("NumberWin1",numberW1);
-	localStorage.setItem("block1R",block1R);
-	localStorage.setItem("block1RL",block1R);
-	localStorage.setItem("block1RM",block1R);
-
-}
 function pdf()
 {
    
